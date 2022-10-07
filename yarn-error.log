@@ -1,0 +1,33 @@
+Arguments: 
+  /home/natan/.nvm/versions/node/v16.17.1/bin/node /mnt/c/Program Files (x86)/Yarn/bin/yarn.js add typescript @types/node --dev
+
+PATH: 
+  /home/natan/.vscode-server/bin/74b1f979648cc44d385a2286793c226e611f59e7/bin/remote-cli:/home/natan/.nvm/versions/node/v16.17.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/MinGW/bin:/mnt/c/Program Files/dotnet/:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files (x86)/Yarn/bin/:/mnt/c/Program Files/OpenJDK/openjdk-11.0.15_10/bin:/mnt/c/Vim/vim82:/mnt/c/Neovim/bin:/mnt/c/Users/Pichau/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/Pichau/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/Pichau/.dotnet/tools:/mnt/c/Users/Pichau/AppData/Roaming/npm:/mnt/c/Users/Pichau/AppData/Local/Yarn/bin:/mnt/c/Users/Pichau/AppData/Local/Yarn/binn:/mnt/c/Users/Pichau/AppData/Local/Yarn/bin:/snap/bin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  16.17.1
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: getaddrinfo EAI_AGAIN registry.yarnpkg.com
+      at GetAddrInfoReqWrap.onlookup [as oncomplete] (node:dns:109:26)
+
+npm manifest: 
+  {
+    "name": "selfdev",
+    "version": "1.0.0",
+    "main": "index.js",
+    "author": "Nataniel Costa <nataniel08@protonmail.com>",
+    "license": "MIT"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
