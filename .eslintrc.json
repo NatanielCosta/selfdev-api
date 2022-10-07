@@ -1,0 +1,66 @@
+{
+    "env": {
+        "es2021": true,
+        "node": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "overrides": [],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "rules": {
+        "indent": [
+            "error",
+            "tab"
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "never"
+        ],
+        "key-spacing": "warn",
+        "space-before-function-paren": "error",
+        "space-infix-ops": "warn",
+        "comma-spacing": "warn",
+        "brace-style": "warn",
+        "curly": "warn",
+        "no-multiple-empty-lines": "warn",
+        "operator-linebreak": "warn",
+        "one-var": "off",
+        "block-spacing": "warn",
+        "camelcase": "error",
+        "comma-dangle": "warn",
+        "comma-style": "warn",
+        "dot-location": "warn",
+        "eol-last": "warn",
+        "func-call-spacing": "warn",
+        "keyword-spacing": "warn",
+        "new-cap": "warn",
+        "new-parens": "warn",
+        "accessor-pairs": "warn",
+        "no-dupe-args": "error",
+        "no-dupe-keys": "error",
+        "no-duplicate-imports": "error",
+        "no-extra-parens": "warn",
+        "no-multi-spaces": "warn",
+        "object-property-newline": "warn",
+        "space-before-blocks": "warn",
+        "wrap-iife": "warn",
+        "padded-blocks": "off"
+    }
+}
