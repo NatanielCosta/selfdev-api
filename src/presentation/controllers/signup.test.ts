@@ -1,4 +1,5 @@
 import { MissingParamError } from '../erros/missing-param-error'
+import { HttpRequest } from '../protocols/http'
 import { SignUpController } from './signup'
 
 describe('SignUp Controler', () => {
@@ -11,7 +12,7 @@ describe('SignUp Controler', () => {
 				passwordConfirmation: 'any_password'
 			}
 		}
-		const httpResponse = await sut.handle(httRequest)
+		const httpResponse = sut.handle(httRequest)
 		expect(httpResponse.statusCode).toBe(400)
 		expect(httpResponse.body).toEqual(new MissingParamError('name'))
 	})
@@ -46,7 +47,7 @@ describe('SignUp Controler', () => {
 
 	it('Should return 400 if no password confirmation is provided', async () => {
 		const sut = new SignUpController()
-		const httRequest = {
+		const httRequest: HttpRequest = {
 			body: {
 				name: 'any_name',
 				email: 'any_email@mail.com',
