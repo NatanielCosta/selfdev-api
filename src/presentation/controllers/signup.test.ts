@@ -1,7 +1,6 @@
 import { InvalidParamError, MissingParamError, ServerError } from '../erros'
-import { HttpRequest } from '../protocols/http'
+import { EmailValidator } from '../protocols'
 import { SignUpController } from './signup'
-import { EmailValidator } from '../protocols/emailValidator'
 
 interface SutTypes {
 	sut: SignUpController
@@ -69,7 +68,7 @@ describe('SignUp Controler', () => {
 
 	it('Should return 400 if no password confirmation is provided', async () => {
 		const { sut } = makeSut()
-		const httRequest: HttpRequest = {
+		const httRequest = {
 			body: {
 				name: 'any_name',
 				email: 'any_email@mail.com',
@@ -84,7 +83,7 @@ describe('SignUp Controler', () => {
 	it('Should return 400 if an invalid email is provided', async () => {
 		const { sut, emailValidatorStub } = makeSut()
 		jest.spyOn(emailValidatorStub, 'isValid').mockReturnValueOnce(false)
-		const httRequest: HttpRequest = {
+		const httRequest = {
 			body: {
 				name: 'any_name',
 				email: 'invalid_email@mail.com',
@@ -100,7 +99,7 @@ describe('SignUp Controler', () => {
 	it('Should call EmailValidator with correct email', async () => {
 		const { sut, emailValidatorStub } = makeSut()
 		const isValidSpy = jest.spyOn(emailValidatorStub, 'isValid')
-		const httRequest: HttpRequest = {
+		const httRequest = {
 			body: {
 				name: 'any_name',
 				email: 'any_email@mail.com',
@@ -120,7 +119,7 @@ describe('SignUp Controler', () => {
 		}
 		const emailValidatorStub = new EmailValidatorStub()
 		const sut = new SignUpController(emailValidatorStub)
-		const httRequest: HttpRequest = {
+		const httRequest = {
 			body: {
 				name: 'any_name',
 				email: 'any_email@mail.com',
