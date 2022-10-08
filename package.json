@@ -25,6 +25,7 @@
     "eslint-config-standard-with-typescript": "^23.0.0"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest --passWithNoTests",
+    "test:staged": "jest --passwithnoTests"
   }
 }
