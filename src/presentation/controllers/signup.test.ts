@@ -122,6 +122,22 @@ describe('SignUp Controler', () => {
 		expect(isValidSpy).toHaveBeenCalledWith('any_email@mail.com')
 	})
 
+	it('Should password confirmation fails', async () => {
+		const { sut, emailValidatorStub } = makeSut()
+		jest.spyOn(emailValidatorStub, 'isValid').mockReturnValueOnce(false)
+		const httRequest = {
+			body: {
+				name: 'any_name',
+				email: 'any_email@mail.com',
+				password: 'any_password',
+				passwordConfirmation: 'invalid_password'
+			}
+		}
+		const httpResponse = sut.handle(httRequest)
+		expect(httpResponse.statusCode).toBe(400)
+		expect(httpResponse.body).toEqual(new InvalidParamError('passwordConfirmation'))
+	})
+
 	it('Should return 500 if EmailValidator throws', async () => {
 		const { sut, emailValidatorStub } = makeSut()
 		jest.spyOn(emailValidatorStub, 'isValid').mockImplementationOnce(() => {
