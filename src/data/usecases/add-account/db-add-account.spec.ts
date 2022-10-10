@@ -16,7 +16,7 @@ const makeAddAccountRepository = (): AddAccountRepository => {
 			const fakeAccount = {
 				id: 'valid_id',
 				name: 'valid_name',
-				email: 'valid_email@mail.com',
+				email: 'valid_email',
 				password: 'hashed_password'
 			}
 			return new Promise(resolve => resolve(fakeAccount))
@@ -92,5 +92,21 @@ describe('DbAddAccount UseCase', () => {
 		}
 		const promise = sut.add(accountData)
 		expect(promise).rejects.toThrow()
+	})
+
+	test('Should return an account on sucess', async () => {
+		const { sut } = makeSut()
+		const accountData = {
+			name: 'valid_name',
+			email: 'valid_email',
+			password: 'valid_password'
+		}
+		const account = await sut.add(accountData)
+		expect(account).toEqual({
+			id: 'valid_id',
+			name: 'valid_name',
+			email: 'valid_email',
+			password: 'hashed_password'
+		})
 	})
 })
