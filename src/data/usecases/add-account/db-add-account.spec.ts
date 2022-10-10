@@ -1,5 +1,4 @@
-import { resolve } from 'path'
-import { Encrypter } from '../../protocols/encryper'
+import { Encrypter } from './db-add-account-protocols'
 import { DbAddAccount } from './db-add-account'
 
 interface SutTypes {
