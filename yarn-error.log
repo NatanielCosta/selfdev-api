@@ -1,5 +1,5 @@
 Arguments: 
-  /home/natan/.nvm/versions/node/v16.17.1/bin/node /mnt/c/Program Files (x86)/Yarn/bin/yarn.js add validator
+  /home/natan/.nvm/versions/node/v16.17.1/bin/node /mnt/c/Program Files (x86)/Yarn/bin/yarn.js add bcrypt
 
 PATH: 
   /home/natan/.vscode-server/bin/74b1f979648cc44d385a2286793c226e611f59e7/bin/remote-cli:/home/natan/.nvm/versions/node/v16.17.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/MinGW/bin:/mnt/c/Program Files/dotnet/:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files (x86)/Yarn/bin/:/mnt/c/Program Files/OpenJDK/openjdk-11.0.15_10/bin:/mnt/c/Vim/vim82:/mnt/c/Neovim/bin:/mnt/c/Users/Pichau/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/Pichau/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/Pichau/.dotnet/tools:/mnt/c/Users/Pichau/AppData/Roaming/npm:/mnt/c/Users/Pichau/AppData/Local/Yarn/bin:/mnt/c/Users/Pichau/AppData/Local/Yarn/binn:/mnt/c/Users/Pichau/AppData/Local/Yarn/bin:/snap/bin
@@ -27,8 +27,10 @@ npm manifest:
     "devDependencies": {
       "@types/jest": "^29.1.2",
       "@types/node": "^18.8.3",
+      "@types/validator": "^13.7.7",
       "@typescript-eslint/eslint-plugin": "^5.39.0",
       "@typescript-eslint/parser": "^5.39.0",
+      "eslint": "^8.24.0",
       "eslint-plugin-import": "^2.25.2",
       "eslint-plugin-n": "^15.0.0",
       "eslint-plugin-promise": "^6.0.0",
@@ -41,8 +43,7 @@ npm manifest:
       "typescript": "*"
     },
     "dependencies": {
-      "eslint": "^8.24.0",
-      "eslint-config-standard-with-typescript": "^23.0.0"
+      "validator": "^13.7.0"
     },
     "scripts": {
       "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
@@ -812,6 +813,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/@types/stack-utils/-/stack-utils-2.0.1.tgz#20f18294f797f2209b5f65c8e3b5c8e8261d127c"
     integrity sha512-Hl219/BT5fLAaz6NDkSuhzasy49dwQS/DSdu4MdggFB8zcXv7vflBI3xp7FEmkmdDkBUI2bPUNeMttp2knYdxw==
   
+  "@types/validator@^13.7.7":
+    version "13.7.7"
+    resolved "https://registry.yarnpkg.com/@types/validator/-/validator-13.7.7.tgz#e87cf34dd08522d21acf30130fd8941f433b81b5"
+    integrity sha512-jiEw2kTUJ8Jsh4A1K4b5Pkjj9Xz6FktLLOQ36ZVLRkmxFbpTvAV2VRoKMojz8UlZxNg/2dZqzpigH4JYn1bkQg==
+  
   "@types/yargs-parser@*":
     version "21.0.0"
     resolved "https://registry.yarnpkg.com/@types/yargs-parser/-/yargs-parser-21.0.0.tgz#0c60e537fa790f5f9472ed2776c2b71ec117351b"
@@ -838,7 +844,7 @@ Lockfile:
       semver "^7.3.7"
       tsutils "^3.21.0"
   
-  "@typescript-eslint/parser@^5.0.0", "@typescript-eslint/parser@^5.39.0":
+  "@typescript-eslint/parser@^5.39.0":
     version "5.39.0"
     resolved "https://registry.yarnpkg.com/@typescript-eslint/parser/-/parser-5.39.0.tgz#93fa0bc980a3a501e081824f6097f7ca30aaa22b"
     integrity sha512-PhxLjrZnHShe431sBAGHaNe6BDdxAASDySgsBCGxcBecVCi8NQWxQZMcizNA4g0pN51bBAn/FUfkWG3SDVcGlA==
@@ -1502,19 +1508,6 @@ Lockfile:
     version "4.0.0"
     resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-4.0.0.tgz#14ba83a5d373e3d311e5afca29cf5bfad965bf34"
     integrity sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==
-  
-  eslint-config-standard-with-typescript@^23.0.0:
-    version "23.0.0"
-    resolved "https://registry.yarnpkg.com/eslint-config-standard-with-typescript/-/eslint-config-standard-with-typescript-23.0.0.tgz#aa4b656740bbb2592d4cadec735d41e36245a44b"
-    integrity sha512-iaaWifImn37Z1OXbNW1es7KI+S7D408F9ys0bpaQf2temeBWlvb0Nc5qHkOgYaRb5QxTZT32GGeN1gtswASOXA==
-    dependencies:
-      "@typescript-eslint/parser" "^5.0.0"
-      eslint-config-standard "17.0.0"
-  
-  eslint-config-standard@17.0.0:
-    version "17.0.0"
-    resolved "https://registry.yarnpkg.com/eslint-config-standard/-/eslint-config-standard-17.0.0.tgz#fd5b6cf1dcf6ba8d29f200c461de2e19069888cf"
-    integrity sha512-/2ks1GKyqSOkH7JFvXJicu0iMpoojkwB+f5Du/1SC0PtBL+s8v30k9njRZ21pm2drKYm2342jFnGWzttxPmZVg==
   
   eslint-import-resolver-node@^0.3.6:
     version "0.3.6"
@@ -3609,6 +3602,11 @@ Lockfile:
       "@jridgewell/trace-mapping" "^0.3.12"
       "@types/istanbul-lib-coverage" "^2.0.1"
       convert-source-map "^1.6.0"
+  
+  validator@^13.7.0:
+    version "13.7.0"
+    resolved "https://registry.yarnpkg.com/validator/-/validator-13.7.0.tgz#4f9658ba13ba8f3d82ee881d3516489ea85c0857"
+    integrity sha512-nYXQLCBkpJ8X6ltALua9dRrZDHVYxjJ1wgskNt1lH9fzGjs3tgojGSCBjmEPwkWS1y29+DrizMTW19Pr9uB2nw==
   
   walker@^1.0.8:
     version "1.0.8"
