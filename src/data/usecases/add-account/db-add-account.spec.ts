@@ -1,7 +1,6 @@
 import { AccountModel, AddAccountModel, AddAccountRepository, Encrypter } from './db-add-account-protocols'
 import { DbAddAccount } from './db-add-account'
 
-
 const makeEncrypter = (): Encrypter => {
 	class EncrypterStub implements Encrypter {
 		async encrypt (value: string): Promise<string> {
@@ -72,14 +71,26 @@ describe('DbAddAccount UseCase', () => {
 		const addSpy = jest.spyOn(addAccountRepositoryStub, 'add')
 		const accountData = {
 			name: 'valid_name',
-			email: 'valid_email@mail.com',
+			email: 'valid_email',
 			password: 'valid_password'
 		}
 		await sut.add(accountData)
 		expect(addSpy).toBeCalledWith({
 			name: 'valid_name',
-			email: 'valid_email@mail.com',
+			email: 'valid_email',
 			password: 'hashed_password'
 		})
+	})
+
+	test('Should throw if AddAccountRepository throws', async () => {
+		const { sut, addAccountRepositoryStub } = makeSut()
+		jest.spyOn(addAccountRepositoryStub, 'add').mockReturnValueOnce(new Promise((resolve, reject) => reject(new Error())))
+		const accountData = {
+			name: 'valid_name',
+			email: 'valid_email',
+			password: 'valid_password'
+		}
+		const promise = sut.add(accountData)
+		expect(promise).rejects.toThrow()
 	})
 })
